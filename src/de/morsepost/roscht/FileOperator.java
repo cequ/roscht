@@ -56,7 +56,7 @@ class FileOperator {
 	private static String load(Path path) throws IOException {
 		StringBuilder stringBuilder = new StringBuilder();
 		try (BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF-8"))) {
-			reader.lines().forEach(stringBuilder::append);
+			reader.lines().forEach(line -> stringBuilder.append(line).append(System.lineSeparator()));
 			return stringBuilder.toString();
 		}
 	}
