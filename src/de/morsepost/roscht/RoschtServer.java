@@ -72,6 +72,8 @@ class RoschtServer implements HttpHandler, Closeable {
 			exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
 		} else if (file.startsWith("{")) {
 			exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
+		} else if (file.startsWith("<svg")) {
+			exchange.getResponseHeaders().set("Content-Type", "image/svg+xml; charset=UTF-8");
 		} else {
 			exchange.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
 		}
